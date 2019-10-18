@@ -1,14 +1,11 @@
 module gitlab.com/sacules/ms
 
-go 1.12
+go 1.13
 
 require (
-	github.com/adrg/xdg v0.0.0-20190319220657-88e5137d2444
-	github.com/gdamore/tcell v1.2.1-0.20190805162843-ae1dc54d2c70
+	github.com/adrg/xdg v0.0.0-20191014103126-5e0e8ae1af11
+	github.com/gdamore/tcell v1.3.0
 	github.com/google/go-cmp v0.3.1
-	github.com/rivo/tview v0.0.0-20190829161255-f8bc69b90341
-	github.com/rivo/uniseg v0.1.0 // indirect
+	github.com/rivo/tview v0.0.0-20191018125527-685bf6da76c2
 	gitlab.com/Sacules/jsonfile v0.2.2
-	golang.org/x/sys v0.0.0-20190922100055-0a153f010e69 // indirect
-	golang.org/x/text v0.3.2 // indirect
 )
