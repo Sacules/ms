@@ -1,9 +1,9 @@
 package main
 
 import (
-	"os"
-  	"os/signal"
 	"fmt"
+	"os"
+	"os/signal"
 )
 
 func main() {
@@ -37,10 +37,10 @@ func main() {
 		defer os.Remove("ms.lock")
 		lockstate = true
 	}
-	
+
 	if len(os.Args) > 1 {
 		if os.Args[1] == "newblock" {
-			newblock()
+			newBlock()
 		}
 
 		return

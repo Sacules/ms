@@ -9,7 +9,15 @@ import (
 	ms "gitlab.com/sacules/ms/schedule"
 )
 
-func newblock() {
+// Sometimes when creating a new weekly block,
+// I forget that I may have not listened or rated something in the last block.
+// Check that before creating a new block.
+
+func checkLastBlock() {
+
+}
+
+func newBlock() {
 	var (
 		scanner = bufio.NewScanner(os.Stdin)
 		q       = new(ms.Queue)
