@@ -14,11 +14,11 @@ var lockfile = filepath.Join(ms.DataDir, "ms.lock")
 func main() {
 	exitsig := make(chan os.Signal, 1)
 	signal.Notify(exitsig, os.Interrupt)
-	lockstate := false
+	locked := false
 
 	go func() {
 		<-exitsig
-		if lockstate {
+		if locked {
 			err := os.Remove(lockfile)
 			if err != nil {
 				fmt.Printf("couldn't remove the lock: %v", err)
@@ -40,7 +40,7 @@ func main() {
 		}
 		file.Close()
 		defer os.Remove(lockfile)
-		lockstate = true
+		locked = true
 	}
 
 	if len(os.Args) > 1 {
