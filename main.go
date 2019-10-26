@@ -18,28 +18,32 @@ func main() {
 
 	go func() {
 		<-exitsig
-		if locked {
-			err := os.Remove(lockfile)
-			if err != nil {
-				fmt.Printf("couldn't remove the lock: %v", err)
-				return
-			}
+		if !locked {
+			return
 		}
-		os.Exit(0)
+
+		err := os.Remove(lockfile)
+		if err != nil {
+			fmt.Printf("couldn't remove the lock: %v", err)
+			return
+		}
 	}()
 
-	if _, err := os.Stat(lockfile); err == nil {
-		fmt.Printf("Cannot run program : Another Instance already running")
+	_, err := os.Stat(lockfile)
+	if err == nil {
+		fmt.Println("ms: another instance already running")
 		return
+	}
 
-	} else if os.IsNotExist(err) {
-		var file, err = os.Create(lockfile)
+	if os.IsNotExist(err) {
+		file, err := os.Create(lockfile)
 		if err != nil {
 			fmt.Printf("couldn't create the lock: %v", err)
 			return
 		}
-		file.Close()
 		defer os.Remove(lockfile)
+
+		file.Close()
 		locked = true
 	}
 
