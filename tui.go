@@ -3,11 +3,12 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/gdamore/tcell"
 	"github.com/rivo/tview"
+
 	ms "gitlab.com/sacules/ms/schedule"
-	"strings"
 )
 
 type tui struct {
@@ -28,8 +29,8 @@ func newTui() *tui {
 }
 
 func removeLock() int {
-        defer os.Remove("ms.lock")
-        return 1
+	defer os.Remove("ms.lock")
+	return 1
 }
 
 func (tui *tui) addBlocks() {
