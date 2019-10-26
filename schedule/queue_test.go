@@ -64,10 +64,10 @@ func TestSaveAndLoadQueue(t *testing.T) {
 		t.Error("didn't add properly")
 	}
 
-	dataDir = "testdir"
-	dataPath = filepath.Join(dataDir, "test.json")
-	defer os.Remove(dataDir)
-	defer os.Remove(dataPath)
+	DataDir = "testdir"
+	DataPath = filepath.Join(DataDir, "test.json")
+	defer os.Remove(DataDir)
+	defer os.Remove(DataPath)
 
 	err := qLocal.Save()
 	if err != nil {

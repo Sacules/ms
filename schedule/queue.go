@@ -13,8 +13,11 @@ const (
 )
 
 var (
-	dataDir  = filepath.Join(xdg.DataHome, app)
-	dataPath = filepath.Join(dataDir, savefile)
+	// DataDir is the directoy in which to save the queue
+	DataDir = filepath.Join(xdg.DataHome, app)
+
+	// DataPath is the full path for the queue
+	DataPath = filepath.Join(DataDir, savefile)
 )
 
 // Queue is the overall scheduler, consisting of 4 blocks.
@@ -31,12 +34,12 @@ func (q *Queue) Add(b *Block) {
 
 // Load queue from disk.
 func (q *Queue) Load() error {
-	err := createDirNotExist(dataDir)
+	err := createDirNotExist(DataDir)
 	if err != nil {
 		return err
 	}
 
-	return jsonfile.Load(q, dataPath)
+	return jsonfile.Load(q, DataPath)
 }
 
 // Replace goes through the queue and replaces an album for a new one.
@@ -48,10 +51,10 @@ func (q *Queue) Replace(old, actual Album) {
 
 // Save queue to disk.
 func (q *Queue) Save() error {
-	err := createDirNotExist(dataDir)
+	err := createDirNotExist(DataDir)
 	if err != nil {
 		return err
 	}
 
-	return jsonfile.Save(q, dataPath)
+	return jsonfile.Save(q, DataPath)
 }
