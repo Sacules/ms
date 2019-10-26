@@ -4,7 +4,12 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
+	"path/filepath"
+
+	ms "gitlab.com/sacules/ms/schedule"
 )
+
+var lockfile = filepath.Join(ms.DataDir, "ms.lock")
 
 func main() {
 	exitsig := make(chan os.Signal, 1)
@@ -14,7 +19,7 @@ func main() {
 	go func() {
 		<-exitsig
 		if lockstate {
-			err := os.Remove("ms.lock")
+			err := os.Remove(lockfile)
 			if err != nil {
 				fmt.Printf("couldn't remove the lock: %v", err)
 				return
@@ -23,18 +28,18 @@ func main() {
 		os.Exit(0)
 	}()
 
-	if _, err := os.Stat("ms.lock"); err == nil {
+	if _, err := os.Stat(lockfile); err == nil {
 		fmt.Printf("Cannot run program : Another Instance already running")
 		return
 
 	} else if os.IsNotExist(err) {
-		var file, err = os.Create("ms.lock")
+		var file, err = os.Create(lockfile)
 		if err != nil {
 			fmt.Printf("couldn't create the lock: %v", err)
 			return
 		}
 		file.Close()
-		defer os.Remove("ms.lock")
+		defer os.Remove(lockfile)
 		lockstate = true
 	}
 
