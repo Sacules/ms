@@ -62,7 +62,7 @@ func (tui *tui) addBlocks() {
 		for j, album := range block.Albums {
 			var listened, rated string
 
-			cell := tview.NewTableCell(album.Name)
+			cell := tview.NewTableCell(tview.Escape(album.Name))
 			cell.
 				SetExpansion(1).
 				SetMaxWidth(len(album.Name))
