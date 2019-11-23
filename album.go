@@ -1,4 +1,4 @@
-package schedule
+package ms
 
 // Album is a record to be scheduled. Includes whether it's been listened
 // or rated.

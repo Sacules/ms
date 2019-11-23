@@ -6,7 +6,7 @@ import (
 	"os/signal"
 	"path/filepath"
 
-	ms "gitlab.com/sacules/ms/schedule"
+	"gitlab.com/sacules/ms"
 )
 
 var lockfile = filepath.Join(ms.DataDir, "ms.lock")

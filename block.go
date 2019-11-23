@@ -1,4 +1,4 @@
-package schedule
+package ms
 
 // Block represents a week worth of albums, each week having a new block.
 type Block struct {

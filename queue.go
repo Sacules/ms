@@ -1,4 +1,4 @@
-package schedule
+package ms
 
 import (
 	"path/filepath"

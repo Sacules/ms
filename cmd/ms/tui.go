@@ -8,7 +8,7 @@ import (
 	"github.com/gdamore/tcell"
 	"github.com/rivo/tview"
 
-	ms "gitlab.com/sacules/ms/schedule"
+	"gitlab.com/sacules/ms"
 )
 
 type tui struct {

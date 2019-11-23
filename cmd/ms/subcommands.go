@@ -6,38 +6,33 @@ import (
 	"os"
 	"strconv"
 
-	ms "gitlab.com/sacules/ms/schedule"
+	"gitlab.com/sacules/ms"
 )
 
-func newblock() {
-	var (
-		scanner = bufio.NewScanner(os.Stdin)
-		q       = new(ms.Queue)
-	)
+func newblock() error {
+	scanner := bufio.NewScanner(os.Stdin)
+	q := new(ms.Queue)
 
 	err := q.Load()
 	if err != nil {
-		fmt.Printf("Error reading queue: %s\n", err)
-		os.Exit(1)
+		return fmt.Errorf("newblock: %v", err)
 	}
 
 	fmt.Printf("Name for new block: ")
 	scanner.Scan()
 	name := scanner.Text()
 
-records:
 	fmt.Printf("Amount of records for this week: ")
 	scanner.Scan()
 	num := scanner.Text()
 
 	n, err := strconv.Atoi(num)
-	if n <= 0 {
-		err = fmt.Errorf("amount of records must be an integer greater than 0")
-	}
 	if err != nil {
-		fmt.Printf("Error with amount of record: %s\n", err)
-		fmt.Println("Pleae try again.")
-		goto records
+		return fmt.Errorf("newblock: %v", err)
+	}
+
+	if n <= 0 {
+		return fmt.Errorf("newblock: amount of records must be greater than 0")
 	}
 
 	albums := make([]ms.Album, n)
@@ -58,9 +53,10 @@ records:
 
 	err = q.Save()
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		return fmt.Errorf("newblock: %v", err)
 	}
+
+	return nil
 }
 
 func status() error {
