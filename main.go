@@ -48,8 +48,17 @@ func main() {
 	}
 
 	if len(os.Args) > 1 {
-		if os.Args[1] == "newblock" {
+		switch os.Args[1] {
+		case "newblock":
 			newblock()
+
+		case "status":
+			err = status()
+		}
+
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(1)
 		}
 
 		return

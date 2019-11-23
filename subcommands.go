@@ -62,3 +62,33 @@ records:
 		os.Exit(1)
 	}
 }
+
+func status() error {
+	q := new(ms.Queue)
+	err := q.Load()
+	if err != nil {
+		return fmt.Errorf("status: %v", err)
+	}
+
+	var total, listened int
+	for i, block := range q {
+		for _, album := range block.Albums {
+			if i == 2 {
+				continue
+			}
+
+			if (i == 0 && album.FirstListen) ||
+				(i == 1 && album.SecondListen) ||
+				(i == 3 && album.ThirdListen) {
+				listened++
+			}
+
+			total++
+		}
+	}
+
+	fmt.Println("Total records:", total)
+	fmt.Println("Total listened:", listened)
+
+	return nil
+}

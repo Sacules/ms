@@ -212,6 +212,7 @@ func (tui *tui) setupBindings() {
 	}
 }
 
+// TODO: return the error, let the caller handle it
 func (tui *tui) run() {
 	// Run the App
 	tui.app.SetRoot(tui.flex, true).SetFocus(tui.flex)
