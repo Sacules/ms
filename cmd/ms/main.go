@@ -50,7 +50,7 @@ func main() {
 	if len(os.Args) > 1 {
 		switch os.Args[1] {
 		case "newblock":
-			newblock()
+			err = newblock()
 
 		case "status":
 			err = status()
