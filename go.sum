@@ -18,6 +18,8 @@ github.com/mattn/go-runewidth v0.0.6 h1:V2iyH+aX9C5fsYCpK60U8BYIvmhqxuOL3JZcqc1N
 github.com/mattn/go-runewidth v0.0.6/go.mod h1:H031xJmbD/WCDINGzjvQ9THkh0rPKHF+m2gUSrubnMI=
 github.com/rivo/tview v0.0.0-20191018125527-685bf6da76c2 h1:GVXSfgXOMAeLvFH7IrpY3yYM8H3YekZEFcZ14q9gQXM=
 github.com/rivo/tview v0.0.0-20191018125527-685bf6da76c2/go.mod h1:/rBeY22VG2QprWnEqG57IBC8biVu3i0DOIjRLc9I8H0=
+github.com/rivo/tview v0.0.0-20191121195645-2d957c4be01d h1:dPWYyMzc2VB5XX7eA/Pe5TXBGzhlVZZr54GhRJLTbts=
+github.com/rivo/tview v0.0.0-20191121195645-2d957c4be01d/go.mod h1:/rBeY22VG2QprWnEqG57IBC8biVu3i0DOIjRLc9I8H0=
 github.com/rivo/uniseg v0.1.0 h1:+2KBaVoUmb9XzDsrx/Ct0W/EYOSFf/nWTauy++DprtY=
 github.com/rivo/uniseg v0.1.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 gitlab.com/Sacules/jsonfile v0.2.2 h1:CYI89VWMFNc6jTnShgozHJAmbDoCGBQgORK9tN955fc=
@@ -28,6 +30,8 @@ golang.org/x/sys v0.0.0-20191018095205-727590c5006e h1:ZtoklVMHQy6BFRHkbG6JzK+S6
 golang.org/x/sys v0.0.0-20191018095205-727590c5006e/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20191113165036-4c7a9d0fe056 h1:dHtDnRWQtSx0Hjq9kvKFpBh9uPPKfQN70NZZmvssGwk=
 golang.org/x/sys v0.0.0-20191113165036-4c7a9d0fe056/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/sys v0.0.0-20191120155948-bd437916bb0e h1:N7DeIrjYszNmSW409R3frPPwglRwMkXSBzwVbkOjLLA=
+golang.org/x/sys v0.0.0-20191120155948-bd437916bb0e/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/text v0.3.0 h1:g61tztE5qeGQ89tm6NTjjM9VPIm088od1l6aSorWRWg=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 golang.org/x/text v0.3.2 h1:tW2bmiBqwgJj/UpqtC8EpXEZVYOwU0yG4iWbprSVAcs=
