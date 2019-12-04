@@ -67,5 +67,8 @@ func main() {
 	tui := newTui()
 
 	tui.init()
-	tui.run()
+	err = tui.run()
+	if err != nil {
+		panic(err)
+	}
 }

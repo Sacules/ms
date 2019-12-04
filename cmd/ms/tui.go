@@ -213,17 +213,20 @@ func (tui *tui) setupBindings() {
 }
 
 // TODO: return the error, let the caller handle it
-func (tui *tui) run() {
+func (tui *tui) run() error {
 	// Run the App
 	tui.app.SetRoot(tui.flex, true).SetFocus(tui.flex)
 	if err := tui.app.Run(); err != nil {
-		panic(err)
+		return err
 	}
 
 	if err := tui.queue.Save(); err != nil {
 		fmt.Println(err)
+		// FIXME: give up the removal of the lockfile to the caller.
 		os.Exit(removeLock())
 	}
+
+	return nil
 }
 
 func (tui *tui) init() {
