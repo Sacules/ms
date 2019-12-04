@@ -8,18 +8,17 @@ import (
 	"github.com/google/go-cmp/cmp"
 )
 
-var (
-	qRef = Queue{
+func newQueueMock() *Queue {
+	return &Queue{
 		&Block{"week 4", []Album{Album{Name: "nice"}, Album{Name: "nice"}}},
 		&Block{"week 3", []Album{Album{Name: "placeholder"}}},
 		&Block{"week 2", []Album{Album{Name: "fizz"}, Album{Name: "buzz"}, Album{Name: "fizbuzz"}}},
 		&Block{"week 1", []Album{Album{Name: "foo"}, Album{Name: "bar"}, Album{Name: "foobar"}}},
 	}
-)
+}
 
 func TestAddBlock(t *testing.T) {
-	tmp := qRef
-	qLocal := &tmp
+	qMock := newQueueMock()
 
 	b := &Block{"week 5", []Album{Album{Name: "darude - sandstorm"}}}
 
@@ -30,9 +29,9 @@ func TestAddBlock(t *testing.T) {
 		&Block{"week 2", []Album{Album{Name: "fizz"}, Album{Name: "buzz"}, Album{Name: "fizbuzz"}}},
 	}
 
-	qLocal.Add(b)
+	qMock.Add(b)
 
-	if !cmp.Equal(qLocal, q) {
+	if !cmp.Equal(qMock, q) {
 		t.Error("didn't add properly")
 	}
 
@@ -46,8 +45,7 @@ func TestAddBlock(t *testing.T) {
 }
 
 func TestSaveAndLoadQueue(t *testing.T) {
-	tmp := qRef
-	qLocal := &tmp
+	qmock := newQueueMock()
 
 	b := &Block{"week 5", []Album{Album{Name: "darude - sandstorm"}}}
 
@@ -58,9 +56,9 @@ func TestSaveAndLoadQueue(t *testing.T) {
 		&Block{"week 2", []Album{Album{Name: "fizz"}, Album{Name: "buzz"}, Album{Name: "fizbuzz"}}},
 	}
 
-	qLocal.Add(b)
+	qmock.Add(b)
 
-	if !cmp.Equal(qLocal, q) {
+	if !cmp.Equal(qmock, q) {
 		t.Error("didn't add properly")
 	}
 
@@ -69,7 +67,7 @@ func TestSaveAndLoadQueue(t *testing.T) {
 	defer os.Remove(DataDir)
 	defer os.Remove(DataPath)
 
-	err := qLocal.Save()
+	err := qmock.Save()
 	if err != nil {
 		t.Errorf("error saving queue: %v", err)
 	}
@@ -80,7 +78,7 @@ func TestSaveAndLoadQueue(t *testing.T) {
 		t.Errorf("error load queue: %v", err)
 	}
 
-	if !cmp.Equal(loadedQueue, qLocal) {
+	if !cmp.Equal(loadedQueue, qmock) {
 		t.Error("saved and loaded queue not same")
 	}
 }

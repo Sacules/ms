@@ -7,12 +7,15 @@ import (
 )
 
 var (
-	name = "nice"
-	foo  = Album{Name: "foo"}
-	bar  = Album{Name: "bar"}
-	al   = []Album{foo, bar}
-	bRef = Block{name, al}
+	name   = "nice"
+	foo    = Album{Name: "foo"}
+	bar    = Album{Name: "bar"}
+	albums = []Album{foo, bar}
 )
+
+func newBlockMock() *Block {
+	return &Block{name, albums}
+}
 
 func TestAddAlbum(t *testing.T) {
 	block := new(Block)
@@ -25,8 +28,7 @@ func TestAddAlbum(t *testing.T) {
 }
 
 func TestRemoveAlbum(t *testing.T) {
-	tmp := bRef
-	b := &tmp
+	b := newBlockMock()
 
 	bLess := &Block{
 		Name:   name,
@@ -58,8 +60,7 @@ func TestRemoveAlbum(t *testing.T) {
 }
 
 func TestReplaceAlbum(t *testing.T) {
-	tmp := bRef
-	b := &tmp
+	b := newBlockMock()
 
 	bReplaced := &Block{
 		Name:   name,
