@@ -1,5 +1,15 @@
 package ms
 
+// Album is a record to be scheduled. Includes whether it's been listened
+// or rated.
+type Album struct {
+	Name         string `json:"name"`
+	FirstListen  bool   `json:"first_listen"`
+	SecondListen bool   `json:"second_listen"`
+	ThirdListen  bool   `json:"third_listen"`
+	Rated        bool   `json:"rated"`
+}
+
 // Block represents a week worth of albums, each week having a new block.
 type Block struct {
 	Name   string  `json:"name"`
