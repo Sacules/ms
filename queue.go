@@ -4,7 +4,7 @@ import (
 	"path/filepath"
 
 	"github.com/adrg/xdg"
-	"gitlab.com/Sacules/jsonfile"
+	"gitlab.com/sacules/jsonfile"
 )
 
 const (

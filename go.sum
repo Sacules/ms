@@ -29,8 +29,8 @@ github.com/rivo/uniseg v0.1.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJ
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.4.0 h1:2E4SXV/wtOkTonXsotYi4li6zVWxYlZuYNCXe9XRJyk=
 github.com/stretchr/testify v1.4.0/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81PSLYec5m4=
-gitlab.com/Sacules/jsonfile v0.2.2 h1:CYI89VWMFNc6jTnShgozHJAmbDoCGBQgORK9tN955fc=
-gitlab.com/Sacules/jsonfile v0.2.2/go.mod h1:8pnBkYIND7OVi75rmkfY43kK0yteB6wm8CTXDr4XFec=
+gitlab.com/sacules/jsonfile v0.2.2 h1:vgY6y2VkTC19/PnX7h1HAVZ4ykEJKWewgvkCxQBdNRQ=
+gitlab.com/sacules/jsonfile v0.2.2/go.mod h1:01Yq/FWckLmVphNgwjKrQI7I6UfGS+tghaMJoZq73kk=
 golang.org/x/sys v0.0.0-20190626150813-e07cf5db2756 h1:9nuHUbU8dRnRRfj9KjWUVrJeoexdbeMjttk6Oh1rD10=
 golang.org/x/sys v0.0.0-20190626150813-e07cf5db2756/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20200212091648-12a6c2dcc1e4/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=

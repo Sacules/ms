@@ -9,6 +9,6 @@ require (
 	github.com/mattn/go-runewidth v0.0.9 // indirect
 	github.com/rivo/tview v0.0.0-20200404204604-ca37f83cb2e7
 	github.com/stretchr/testify v1.4.0 // indirect
-	gitlab.com/Sacules/jsonfile v0.2.2
+	gitlab.com/sacules/jsonfile v0.2.2
 	golang.org/x/sys v0.0.0-20200406155108-e3b113bbe6a4 // indirect
 )
