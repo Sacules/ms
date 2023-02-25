@@ -10,5 +10,5 @@ require (
 	github.com/rivo/tview v0.0.0-20200404204604-ca37f83cb2e7
 	github.com/stretchr/testify v1.4.0 // indirect
 	gitlab.com/sacules/jsonfile v0.2.2
-	golang.org/x/sys v0.0.0-20200406155108-e3b113bbe6a4 // indirect
+	golang.org/x/sys v0.1.0 // indirect
 )
